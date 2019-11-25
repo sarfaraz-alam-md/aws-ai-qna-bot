@@ -8,4 +8,13 @@
 <h1>Know about Trelix</h1>
 <img src="trelix_logo.png" width="500">
 </body>
+<script src="https://lex-web-ui-qnabot-workshop-codebuild-webappbucket-125ai1nk3uct3.s3.amazonaws.com/lex-web-ui-loader.min.js"></script>
+<script>
+  var loaderOpts = {
+    baseUrl: 'https://lex-web-ui-qnabot-workshop-codebuild-webappbucket-125ai1nk3uct3.s3.amazonaws.com/'
+  };
+  var loader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+  loader.load()
+    .catch(function (error) { console.error(error); });
+</script>
 </html>
