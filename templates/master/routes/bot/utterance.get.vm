@@ -1,0 +1,6 @@
+{
+    "name":"${SlotType}",
+    "version":"\$LATEST"
+}                
+               
+

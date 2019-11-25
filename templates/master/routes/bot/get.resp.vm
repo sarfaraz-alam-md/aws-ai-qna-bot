@@ -1,0 +1,29 @@
+#set ( $root="https://${!context.apiId}.execute-api.${!stageVariables.Region}.amazonaws.com/${!context.stage}")
+#set($inputRoot = $input.path('$'))
+
+{
+    "lambdaArn": "${FulfillmentLambda.Arn}",
+    "lambdaRole":"${FulfillmentLambdaRole}",
+    "status":"$inputRoot.status",
+    "build":$input.json('$.build'),
+    "botname":"${LexBot}",
+    "botversion":"${Alias}",
+    "messages":{
+        "clarification":[
+            #foreach($message in $input.path('$.clarificationPrompt.messages'))
+            "$message.content"#if( $foreach.hasNext ),#end
+            #end
+        ],
+        "abort":[
+            #foreach($message in $input.path('$.abortStatement.messages'))
+            "$message.content"#if( $foreach.hasNext ),#end
+            #end
+        ]
+    },
+    "_links":{
+        "alexa":{
+            "href":"$root/bot/alexa"
+        }
+    }
+}
+
