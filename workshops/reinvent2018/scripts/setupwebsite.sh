@@ -13,4 +13,4 @@ echo
 
 # copy in the content to the S3 bucket with public read access
 aws s3 cp ../web/index.html s3://$S3Bucket/index.html --acl public-read
-aws s3 cp ../web/solar.png s3://$S3Bucket/solar.png --acl public-read
+aws s3 cp ../web/trelix_logo.png s3://$S3Bucket/trelix_logo.png --acl public-read
